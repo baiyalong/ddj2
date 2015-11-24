@@ -1,0 +1,32 @@
+<template name="app">
+    <div class="app container-fluid">
+        <div class="col-md-12">
+            <div class="row nav">
+                <div>{{>appMenu}}</div>
+            </div>
+            <div class="row content">
+                <div class="col-md-3">
+                    <div class="row tree">
+                        <div>{{>appTree}}</div>
+                    </div>
+                    <div class="row grid">
+                        <div>{{>appGrid}}</div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="row chart">
+                        <div>{{>appChart}}</div>
+                    </div>
+                    <div class="row pp">
+                        <div class="col-md-6 ">
+                            <div>{{>appPrint}}</div>
+                        </div>
+                        <div class="col-md-6 ">
+                            <div>{{>appProgress}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
