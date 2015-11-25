@@ -1,0 +1,31 @@
+.admin {
+  height: 100%;
+  //width: 100%;
+  margin: 0;
+  padding: 0;
+
+  > div.container-fluid {
+    height: 100%;
+    //padding: 0;
+    > div.row {
+      height: 100%;
+      > div.col-md-6 {
+        height: 100%;
+        padding: 0;
+        > div.panel {
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  nav .logout {
+    //font-weight: bold;
+    //margin: 23px 20px auto;
+    //padding: 0;
+    //height: 14px;
+    //line-height: 14px;
+    text-decoration: none;
+    margin-right: 20px;
+  }
+}
