@@ -12,11 +12,10 @@ Template.appMenu.helpers({
 Template.appMenu.events({
 
     'click .logout': function (e) {
-        Meteor.logout(function (err) {
-            if (err)Util.modal('用户注销', err)
-            else
-                Router.go('/')
-        })
+        Meteor.logout()
+    },
+    'click .changePassword': function () {
+        Session.set('editUser', Meteor.userId())
     }
 });
 

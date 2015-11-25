@@ -1,0 +1,35 @@
+<template name="adminProject">
+    <div class="adminProject">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">项目管理</h3>
+            </div>
+            <table class="table table-condensed table-hover">
+                <thead>
+                <tr>
+                    <th>项目名称</th>
+                    <th>项目用户</th>
+                    <th>创建时间</th>
+                    <th>更新时间</th>
+                    <th>
+                        <a class="add btn btn-default btn-sm">添加</a>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each projectList}}
+                <tr>
+                    <td>{{projectName}}</td>
+                    <td>{{projectUser}}</td>
+                    <td>{{moment createdAt}}</td>
+                    <td>{{moment updatedAt}}</td>
+                    <td>
+                        <a class="remove btn btn-default btn-sm">删除</a>
+                    </td>
+                </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</template>

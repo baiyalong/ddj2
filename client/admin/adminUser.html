@@ -1,0 +1,40 @@
+<template name="adminUser">
+    <div class="adminUser">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">用户管理</h3>
+            </div>
+            <table class="table table-condensed table-hover">
+                <thead>
+                <tr>
+                    <th>用户名</th>
+                    <th>角色</th>
+                    <th>
+                        <a class="add btn btn-default btn-sm">添加用户</a>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each userList}}
+                <tr>
+                    <td>{{username}}</td>
+                    {{#if isAdmin roles}}
+                    <td>管理员</td>
+                    <td>
+                        <a class="btn btn-default btn-sm" style="visibility: hidden">删除</a>
+                    </td>
+                    {{else}}
+                    <td>普通用户</td>
+                    <td>
+                        <a class="edit btn btn-default btn-sm">修改密码</a>
+                        <a class="remove btn btn-default btn-sm">删除</a>
+                    </td>
+                    {{/if}}
+                </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {{>modalAddUser}}
+</template>

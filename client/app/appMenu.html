@@ -1,0 +1,16 @@
+<template name="appMenu">
+    <div class="appMenu">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+
+                <a class="navbar-brand title" href="/">在线设计系统</a>
+                <a href="#" class="logout navbar-text navbar-right">注销</a>
+                <a href="#" class="changePassword navbar-text navbar-right">修改密码</a>
+
+                <p class="navbar-text navbar-right username">{{username}}</p>
+
+            </div>
+        </nav>
+    </div>
+    {{>modalChangePassword}}
+</template>

@@ -1,0 +1,16 @@
+<template name="admin">
+    <div class="admin container-fluid">
+        <div class="row nav">
+            {{>adminMenu}}
+        </div>
+        <div class="row content">
+            <div class="col-md-6 content">
+                {{>adminUser}}
+            </div>
+            <div class="col-md-6 content">
+                {{>adminProject}}
+            </div>
+        </div>
+    </div>
+    {{>modal}}
+</template>
