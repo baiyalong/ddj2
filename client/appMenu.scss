@@ -16,11 +16,10 @@
   }
 
   nav .logout {
-    //font-weight: bold;
-    //margin: 23px 20px auto;
-    //padding: 0;
-    //height: 14px;
-    //line-height: 14px;
+    text-decoration: none;
+    margin-right: 20px;
+  }
+  nav .changePassword {
     text-decoration: none;
     margin-right: 20px;
   }

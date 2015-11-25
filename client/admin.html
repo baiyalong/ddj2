@@ -3,8 +3,9 @@
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
 
-                <a class="navbar-brand title" href="/admin">在线设计系统--管理后台</a>
+                <a class="navbar-brand title" href="/admin">在线设计系统--后台管理</a>
                 <a href="#" class="logout navbar-text navbar-right">注销</a>
+                <a href="#" class="changePassword navbar-text navbar-right">修改密码</a>
 
                 <p class="navbar-text navbar-right username">{{username}}</p>
 
@@ -18,8 +19,29 @@
                             <h3 class="panel-title">用户管理</h3>
                         </div>
                         <div class="panel-body">
-                            Panel content
+                            <p>添加用户</p>
                         </div>
+                        <table class="table table-condensed table-hover">
+                            <thead>
+                            <tr>
+                                <th>用户名</th>
+                                <th>创建时间</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{#each userList}}
+                            <tr>
+                                <td>{{username}}</td>
+                                <td>{{moment createdAt}}</td>
+                                <td>
+                                    <a class="edit btn btn-default btn-sm">修改密码</a>
+                                    <a class="remove btn btn-default btn-sm">删除</a>
+                                </td>
+                            </tr>
+                            {{/each}}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -27,9 +49,30 @@
                         <div class="panel-heading">
                             <h3 class="panel-title">项目管理</h3>
                         </div>
-                        <div class="panel-body">
-                            Panel content
-                        </div>
+                        <table class="table table-condensed table-hover">
+                            <thead>
+                            <tr>
+                                <th>项目名称</th>
+                                <th>项目用户</th>
+                                <th>创建时间</th>
+                                <th>更新时间</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{#each projectList}}
+                            <tr>
+                                <td>{{projectName}}</td>
+                                <td>{{projectUser}}</td>
+                                <td>{{moment createdAt}}</td>
+                                <td>{{moment updatedAt}}</td>
+                                <td>
+                                    <a class="remove btn btn-default btn-sm">删除</a>
+                                </td>
+                            </tr>
+                            {{/each}}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
