@@ -36,6 +36,7 @@ Template.modalChangePassword.events({
                         t.$('#passwordOld').val('');
                         t.$('#passwordNew').val('');
                         Session.set('err', null);
+                        Util.modal('修改密码','修改成功！');
                     }
                 })
             }
@@ -48,6 +49,7 @@ Template.modalChangePassword.events({
                     t.$('#passwordOld').val('');
                     t.$('#passwordNew').val('');
                     Session.set('err', null);
+                    Util.modal('修改密码','修改成功！');
                 }
             })
         }

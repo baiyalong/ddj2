@@ -32,6 +32,7 @@ Template.modalAddUser.events({
                     t.$('#username').val('');
                     t.$('#password').val('');
                     Session.set('err', null);
+                    Util.modal('添加用户','添加成功！');
                 }
             })
         }
