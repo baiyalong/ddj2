@@ -3,8 +3,8 @@
  */
 Util = {
     modal: function (title, content) {
-        $('#modalTitle').text(title)
-        $('#modalContent').text(content)
+        $('#modal-title').text(title)
+        $('#modal-body').text(content)
         $('#modal').modal()
     }
 }
