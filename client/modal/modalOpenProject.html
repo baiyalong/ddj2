@@ -1,0 +1,41 @@
+<template name="modalOpenProject">
+    <div id="modalOpenProject" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">工程列表<span class="err" style="color: red">&nbsp;&nbsp;{{err}}</span></h4>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-condensed table-hover">
+                        <thead>
+                        <tr>
+                            <td>工程名称</td>
+                            <td>创建时间</td>
+                            <td>更新时间</td>
+                            <td></td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {{#each projectList}}
+                        <tr>
+                            <td>{{projectName}}</td>
+                            <td>{{moment createAt}}</td>
+                            <td>{{moment updateAt}}</td>
+                            <td>
+                                <a class="remove btn btn-default btn-sm open">打开</a>
+                                <a class="remove btn btn-default btn-sm delete">删除</a>
+                            </td>
+                        </tr>
+                        {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

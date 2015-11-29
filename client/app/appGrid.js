@@ -24,11 +24,15 @@ Template.appGrid.events({});
 Template.appGrid.onRendered(function () {
 
         $('.editable').editable({
+            mode: 'inline',
+            showbuttons: false,
             success: function (response, newValue) {
                 //<do something with newValue - usually a collection.update call>
             }
         });
         $('.edit-select').editable({
+            mode: 'inline',
+            showbuttons: false,
             value: 2,
             source: [
                 {value: 1, text: 'Active'},
@@ -37,6 +41,8 @@ Template.appGrid.onRendered(function () {
             ]
         });
         $('.status').editable({
+            mode: 'inline',
+            showbuttons: false,
             value: 2,
             source: [
                 {value: 1, text: 'Active'},

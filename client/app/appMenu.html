@@ -6,23 +6,23 @@
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                           aria-expanded="false">文件 <span class="caret"></span></a>
+                           aria-expanded="false">工程 <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">创建工程</a></li>
-                            <li><a href="#">删除工程</a></li>
+                            <li><a href="#" id="newProject">新建工程</a></li>
+                            <li><a href="#" id="deleteProject">删除工程</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="#">打开工程</a></li>
+                            <li><a href="#" id="openProject">打开工程</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                            aria-expanded="false">编辑 <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Something else here</a></li>
+                            <input type="file" style="display: none" id="fileUpload">
+                            <li><a href="#" id="chengxing">读取成型设计单</a></li>
+                            <li><a href="#" id="sanqian">读取散嵌设计单</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="#">Separated link</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">One more separated link</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -38,9 +38,9 @@
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                           aria-expanded="false">工具 <span class="caret"></span></a>
+                           aria-expanded="false">计算 <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Something else here</a></li>
+                            <li><a href="#" id="IMPredictFrMainCal">电磁力波预测</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="#">Separated link</a></li>
                             <li role="separator" class="divider"></li>
@@ -68,4 +68,7 @@
         </nav>
     </div>
     {{>modalChangePassword}}
+    {{>modalNewProject}}
+    {{>modalOpenProject}}
+    {{>modalIMPredictFrMainCal}}
 </template>
