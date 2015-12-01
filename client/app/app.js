@@ -3,7 +3,11 @@
  */
 //
 
-Template.app.helpers({});
+Template.app.helpers({
+    project: function () {
+        return Session.get('projectID')
+    }
+});
 
 Template.app.events({});
 

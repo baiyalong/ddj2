@@ -4,7 +4,11 @@
 /**
  * Created by bai on 2015/11/24.
  */
-Template.appTree.helpers({});
+Template.appTree.helpers({
+    project: function () {
+        return Session.get('projectID')
+    }
+});
 
 Template.appTree.events({});
 

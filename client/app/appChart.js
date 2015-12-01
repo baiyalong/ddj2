@@ -1,6 +1,26 @@
 /**
  * Created by bai on 2015/11/24.
  */
+
+
+Template.appChart.helpers({
+    project: function () {
+        return Session.get('projectID')
+    }
+});
+
+Template.appChart.events({});
+
+Template.appChart.onRendered(function () {
+        builtArea();
+    }
+);
+
+Template.appChart.onCreated(function () {
+    }
+);
+
+
 /*
  * Function to draw the area chart
  */
@@ -90,6 +110,3 @@ function builtArea() {
 /*
  * Call the function to built the chart when the template is rendered
  */
-Template.areaDemo.rendered = function() {
-    builtArea();
-}

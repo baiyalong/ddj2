@@ -5,14 +5,11 @@
                 <h3 class="panel-title">图表</h3>
             </div>
             <div class="panel-body">
-                {{>areaDemo}}
+                {{#if project}}
+                <div id="container-area" style="min-width: 310px; height: 400px;"></div>
+                {{/if}}
             </div>
         </div>
     </div>
 </template>
 
-
-
-<template name="areaDemo">
-    <div id="container-area" style="min-width: 310px; height: 400px;"></div>
-</template>
