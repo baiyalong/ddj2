@@ -8,55 +8,32 @@
  * Created by bai on 2015/11/24.
  */
 Template.appGrid.helpers({
+    propertyName: function () {
+        return Session.get('propertyName')
+    },
     project: function () {
         return Session.get('projectID')
     },
-    name: function () {
-        return 'name';
+    property: function () {
+        var project = Session.get('project');
+        var propertyName = Session.get('propertyName');
+        if (project && propertyName) {
+            var property = project.grid.find(function (e) {
+                return e.name == propertyName;
+            });
+            return property ? property.property : null;
+        }
     },
-    value: function () {
-        return 'value';
-    },
-    unit: function () {
-        return 'unit';
-    }
 });
 
 Template.appGrid.events({});
 
 Template.appGrid.onRendered(function () {
 
-        $('.editable').editable({
-            mode: 'inline',
-            showbuttons: false,
-            success: function (response, newValue) {
-                //<do something with newValue - usually a collection.update call>
-            }
-        });
-        $('.edit-select').editable({
-            mode: 'inline',
-            showbuttons: false,
-            value: 2,
-            source: [
-                {value: 1, text: 'Active'},
-                {value: 2, text: 'Blocked'},
-                {value: 3, text: 'Deleted'}
-            ]
-        });
-        $('.status').editable({
-            mode: 'inline',
-            showbuttons: false,
-            value: 2,
-            source: [
-                {value: 1, text: 'Active'},
-                {value: 2, text: 'Blocked'},
-                {value: 3, text: 'Deleted'}
-            ]
-        });
     }
 );
 
 Template.appGrid.onCreated(function () {
-        //$.fn.editable.defaults.mode = 'inline';
+
     }
 );

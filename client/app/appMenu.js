@@ -56,6 +56,16 @@ Template.appMenu.events({
         } else
             Util.modal('错误', '请新建或打开工程！')
     },
+    'click #editProperty': function () {
+        var property = Session.get('propertyName');
+        var project = Session.get('project');
+        if (property && project.grid.find(function (e) {
+                return e.name == property;
+            })) {
+            Session.set('editProperty', true)
+        } else
+            Util.modal('错误', '请选中带属性的节点！')
+    },
     'change #fileUpload': function (e, t) {
         var reader = new FileReader();
         reader.onload = function (e) {

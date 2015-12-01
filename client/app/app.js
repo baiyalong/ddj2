@@ -19,5 +19,6 @@ Template.app.onRendered(function () {
 Template.app.onCreated(function () {
         //$.fn.editable.defaults.mode = 'inline';
         Session.set('projectID', this.data)
+        Session.set('project', Project.findOne(Session.get('projectID')))
     }
 );

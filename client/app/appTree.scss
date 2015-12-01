@@ -3,11 +3,18 @@
  */
 .appTree {
   height: 100%;
+
   > .panel {
+    margin: 1px;
     height: 100%;
+    overflow: scroll;
   }
   .panel-body {
     height: 100%;
     padding: 0;
+
+    ul.list-group {
+      margin: 0;
+    }
   }
 }

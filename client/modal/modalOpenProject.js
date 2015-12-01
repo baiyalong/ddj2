@@ -40,6 +40,6 @@ Template.modalOpenProject.onRendered(function () {
 );
 
 Template.modalOpenProject.onCreated(function () {
-
+        //this.subscribe('projects')
     }
 );

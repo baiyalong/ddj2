@@ -2,7 +2,7 @@
     <div class="appGrid">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">属性</h3>
+                <h3 class="panel-title">属性<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{propertyName}}</span></h3>
             </div>
             <div class="panel-body">
                 {{#if project}}
@@ -15,66 +15,13 @@
                     </tr>
                     </thead>
                     <tbody>
+                    {{#each property}}
                     <tr>
                         <td>{{name}}</td>
-                        <td><a href="#" class="editable" datatype="text">{{value}}</a></td>
-                        <td><a href="#" class="status" data-type="select" data-pk="1" data-url="/post"
-                               data-title="Select status"></a></td>
+                        <td>{{value}}</td>
+                        <td>{{unit}}</td>
                     </tr>
-                    <tr>
-                        <td>{{name}}</td>
-                        <td><a href="#" class="editable" datatype="text">{{value}}</a></td>
-                        <td><a href="#" class="status" data-type="select" data-pk="1" data-url="/post"
-                               data-title="Select status"></a></td>
-                    </tr>
-                    <tr>
-                        <td>{{name}}</td>
-                        <td><a href="#" class="editable" datatype="text">{{value}}</a></td>
-                        <td><a href="#" class="status" data-type="select" data-pk="1" data-url="/post"
-                               data-title="Select status"></a></td>
-                    </tr>
-                    <tr>
-                        <td>{{name}}</td>
-                        <td><a href="#" class="editable" datatype="text">{{value}}</a></td>
-                        <td><a href="#" class="status" data-type="select" data-pk="1" data-url="/post"
-                               data-title="Select status"></a></td>
-                    </tr>
-                    <tr>
-                        <td>{{name}}</td>
-                        <td><a href="#" class="editable" datatype="text">{{value}}</a></td>
-                        <td><a href="#" class="status" data-type="select" data-pk="1" data-url="/post"
-                               data-title="Select status"></a></td>
-                    </tr>
-                    <tr>
-                        <td>{{name}}</td>
-                        <td><a href="#" class="editable" datatype="text">{{value}}</a></td>
-                        <td><a href="#" class="status" data-type="select" data-pk="1" data-url="/post"
-                               data-title="Select status"></a></td>
-                    </tr>
-                    <tr>
-                        <td>{{name}}</td>
-                        <td><a href="#" class="editable" datatype="text">{{value}}</a></td>
-                        <td><a href="#" class="status" data-type="select" data-pk="1" data-url="/post"
-                               data-title="Select status"></a></td>
-                    </tr>
-                    <tr>
-                        <td>{{name}}</td>
-                        <td><a href="#" class="editable" datatype="text">{{value}}</a></td>
-                        <td><a href="#" class="status" data-type="select" data-pk="1" data-url="/post"
-                               data-title="Select status"></a></td>
-                    </tr>
-                    <tr>
-                        <td>{{name}}</td>
-                        <td><a href="#" class="editable" datatype="text">{{value}}</a></td>
-                        <td><a href="#" class="status" data-type="select" data-pk="1" data-url="/post"
-                               data-title="Select status"></a></td>
-                    </tr>
-                    <tr>
-                        <td>{{name}}</td>
-                        <td><a href="#" class="editable" datatype="text">{{value}}</a></td>
-                        <td><a href="#" class="status" data-type="select" data-pk="1" data-url="/post"
-                               data-title="Select status"></a></td>
-                    </tr>
+                    {{/each}}
                     </tbody>
                 </table>
                 {{/if}}

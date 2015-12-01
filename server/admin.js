@@ -15,3 +15,18 @@ Meteor.methods({
         Accounts.setPassword(uid, password)
     }
 })
+
+
+Meteor.publish('projects', function () {
+    return Project.find({}, {
+        fields: {
+            projectName: 1,
+            projectType: 1,
+            projectUser: 1
+        }
+    });
+})
+
+Meteor.publish('user', function () {
+    return Meteor.users.find();
+})
