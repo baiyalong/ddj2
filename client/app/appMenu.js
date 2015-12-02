@@ -43,7 +43,7 @@ Template.appMenu.events({
     'click #IMDbEcStatorCalMain': function () {
         //端部分析-定子（解析法）
         var param = null;
-        if (getValueByName('端部分析-定子（解析法）', '以下参考本体结构') == '是')
+        if (getValueByName('端部分析-定子（解析法）', '以下参考本体结构') != '是')
             param = ['IMDbEcStatorCalMain',
                 getValueByName('端部分析-定子（解析法）', '输出功率'),
                 getValueByName('端部分析-定子（解析法）', '定子线电流'),
@@ -148,7 +148,7 @@ Template.appMenu.events({
     'click #IMMeEcStatorCalMain': function () {
         //机械分析-定子（解析法）
         var param = null;
-        if (getValueByName('机械分析-定子（解析法）', '以下参考本体结构') == '是')
+        if (getValueByName('机械分析-定子（解析法）', '以下参考本体结构') != '是')
             param = ['IMMeEcStatorCalMain',
                 getValueByName('机械分析-定子（解析法）', '极数'),
                 getValueByName('机械分析-定子（解析法）', '定子铁心内径'),
