@@ -16,10 +16,27 @@
                     </thead>
                     <tbody>
                     {{#each property}}
-                    <tr>
-                        <td>{{name}}</td>
-                        <td>{{value}}</td>
-                        <td>{{unit}}</td>
+                    <tr id="{{_id}}">
+                        <td width="40%">{{name}}</td>
+                        {{#if selectValue}}
+                        <td width="30%"><select class="form-control input-sm edit" name="value">
+                            {{#each options}}
+                            <option value="{{option}}" selected="{{selected}}">{{option}}</option>
+                            {{/each}}
+                        </select></td>
+                        {{else}}
+                        <td width="30%"><input type="text" class="form-control input-sm edit" name="value"
+                                               value="{{value}}"/></td>
+                        {{/if}}
+                        {{#if selectUnit}}
+                        <td width="30%"><select class="form-control input-sm edit" name="unit">
+                            {{#each options}}
+                            <option value="{{option}}" selected="{{selected}}">{{option}}</option>
+                            {{/each}}
+                        </select></td>
+                        {{else}}
+                        <td width="30%">{{unit}}</td>
+                        {{/if}}
                     </tr>
                     {{/each}}
                     </tbody>

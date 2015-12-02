@@ -23,6 +23,11 @@ Template.modalFileUpload.events({
             Session.set('err', '请选择文件！')
         else {
             console.log(file)
+
+
+
+
+
         }
     }
 });

@@ -24,7 +24,7 @@ Template.appMenu.events({
         var projectID = Session.get('projectID')
         if (projectID) {
             if (confirm('确认删除当前工程吗？'))
-                Project.remove(projectID, function (err, res) {
+                Meteor.call('deleteProject', projectID, function (err, res) {
                     if (err)
                         console.log(err)
                     else
@@ -56,21 +56,27 @@ Template.appMenu.events({
         } else
             Util.modal('错误', '请新建或打开工程！')
     },
-    'click #editProperty': function () {
-        var property = Session.get('propertyName');
-        var project = Session.get('project');
-        if (property && project.grid.find(function (e) {
-                return e.name == property;
-            })) {
-            Session.set('editProperty', true)
-        } else
-            Util.modal('错误', '请选中带属性的节点！')
-    },
     'change #fileUpload': function (e, t) {
+        var projectID = Session.get('projectID')
         var reader = new FileReader();
+
+        function cb(err, res) {
+            if (err || res == 0)
+                console.log(err | res)
+        }
+
         reader.onload = function (e) {
-            console.log(Session.get('fileUpload'))
-            console.log(e.target.result)
+            var target = Session.get('fileUpload');
+            console.log('target', target)
+            var file = e.target.result;
+            //console.log(file)
+            var lines = file.split('\n')
+            //console.log(lines)
+            var line_1 = lines[2].split(' ')
+            console.log(line_1)
+            Meteor.call('updateProperty', projectID, '相数', line_1[4], null, cb)
+            Meteor.call('updateProperty', projectID, '极数', line_1[1], null, cb)
+
         }
         reader.readAsText(e.target.files[0])
     }

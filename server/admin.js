@@ -13,7 +13,7 @@ Meteor.methods({
     },
     userSetPassword: function (uid, password) {
         Accounts.setPassword(uid, password)
-    }
+    },
 })
 
 
