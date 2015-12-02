@@ -15,7 +15,8 @@ Meteor.methods({
                         unit: p.unit
                     })
                 })
-            } else if (e.children) {
+            }
+            if (e.children) {
                 e.children.forEach(function (c) {
                     if (c.attributes) {
                         c.attributes.property.forEach(function (pp) {
@@ -56,6 +57,9 @@ Project.allow({
 
 
 Meteor.methods({
+    getProperty: function (pid, name) {
+        return Property.findOne({projectID: pid, name: name})
+    },
     updateProperty: function (pid, name, value, unit) {
         //console.log(pid, name, value, unit)
         return Property.update({projectID: pid, name: name}, {

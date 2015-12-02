@@ -54,7 +54,7 @@ Template.appGrid.helpers({
                 valueOptions(['显极', '庶极']);
                 valueOptions(['同侧', '异侧']);
                 valueOptions(['顺时针', '逆时针']);
-                valueOptions(['入槽在左边', '入槽在右边']);
+                valueOptions(['右入槽', '左入槽']);
                 valueOptions(['解法1', '解法2']);
                 valueOptions(['正弦类型', '表格输入']);
                 valueOptions(['转速恒定', '转速可变']);
@@ -70,6 +70,7 @@ Template.appGrid.helpers({
                 valueOptions(["智能网格剖分", "单元边长固定"]);
                 valueOptions(["A型槽", "B型槽", "C型槽", "D型槽", "E型槽", "F型槽", "G型槽", "H型槽"]);
                 valueOptions(['全开口矩形槽', '半开口矩形槽', '半开口圆底槽']);
+                valueOptions(['模态频率', '电磁振动', '电磁噪声']);
 
                 return e;
             });

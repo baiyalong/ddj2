@@ -32,30 +32,35 @@ Template.appTree.onRendered(function () {
                     })(projectType),
                     nodes: [
                         {
-                            text: "本体结构参数",
+                            text: "本体结构",
                             nodes: [
                                 {text: "基本参数"},
                                 {text: "定子铁心"},
                                 {text: "定子绕组"},
                                 {text: "转子铁心"},
-                                {text: "转子绕组"},
+                                {
+                                    text: (function (projectType) {
+                                        if (projectType == 'raoxian') return "转子绕组";
+                                        else if (projectType == 'shulong') return "转子鼠笼";
+                                    })(projectType)
+                                },
                             ]
                         },
                         {
-                            text: "解析电磁稳态分析",
+                            text: "电磁分析-稳态（解析法）",
                             nodes: [
                                 {text: "文本结果"},
                                 {text: "曲线结果"},
                             ]
                         },
                         {
-                            text: "解析电磁暂态分析",
+                            text: "电磁分析-暂态（解析法）",
                             nodes: [
                                 {text: "曲线结果"},
                             ]
                         },
                         {
-                            text: "数值电磁分析",
+                            text: "电磁分析-暂态（数值法）",
                             nodes: [
                                 {text: "网格生成"},
                                 {text: "文本结果"},
@@ -63,13 +68,16 @@ Template.appTree.onRendered(function () {
                             ]
                         },
                         {
-                            text: "定子机械分析",
+                            text: "机械分析-定子（解析法）",
                             nodes: [
                                 {text: "文本结果"},
                             ]
                         },
                         {
-                            text: "定子端部分析",
+                            text: "机械分析-定子（数值法）",
+                        },
+                        {
+                            text: "端部分析-定子（解析法）",
                             nodes: [
                                 {text: "文本结果"},
                             ]

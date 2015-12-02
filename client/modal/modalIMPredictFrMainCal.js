@@ -34,6 +34,7 @@ Template.modalIMPredictFrMainCal.events({
         if (!Session.get('err')) {
             $('#modalIMPredictFrMainCal').modal('hide');
             Session.set('appPrint', 'send:' + param.join(','))
+            console.log(param.join(','))
             ws.send(param.join(','))
         }
         //if (isNaN(p1))
