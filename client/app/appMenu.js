@@ -234,22 +234,48 @@ Template.appMenu.events({
         var projectID = Session.get('projectID')
         var reader = new FileReader();
 
-        function cb(err, res) {
-            if (err || res == 0)
-                console.log(err | res)
+
+        function update(name, value, unit) {
+            Meteor.call('updateProperty', projectID, name, value, unit, function (err, res) {
+                // if (err || res == 0)
+                console.log(err, res)
+            })
         }
 
         reader.onload = function (e) {
             var target = Session.get('fileUpload');
             console.log('target', target)
             var file = e.target.result;
-            //console.log(file)
+            console.log(file)
             var lines = file.split('\n')
-            //console.log(lines)
+            console.log(lines)
+            //成形的第一部分 和散嵌的所有
+            //第一类：基本数据 (01～22)
             var line_1 = lines[2].split(' ')
             console.log(line_1)
-            Meteor.call('updateProperty', projectID, '相数', line_1[4], null, cb)
-            Meteor.call('updateProperty', projectID, '极数', line_1[1], null, cb)
+            update('相数',line_1[4],null);
+            update('极数',line_1[1],null);
+            //第二类：定子铁心数据(23～33)
+            var line_2 = lines[3].split(' ')
+            console.log(line_2)
+            update('定子铁心外径',line_2[0],'厘米')
+            update('定子铁心内径',line_2[1],'厘米')
+            //第三类：转子铁心数据	34～49 
+            var line_3 = lines[4].split(' ')
+            console.log(line_3)
+            //第四类：笼形转子数据
+            var line_4 = lines[5].split(' ')
+            console.log(line_4)
+            //第五类：定子绕组数据	56～60
+            var line_5 = lines[6].split(' ')
+            console.log(line_5)
+            //第六类：转子绕组数据
+            var line_6 = lines[7].split(' ')
+            console.log(line_6)
+            //第七类：其它数据
+            var line_7 = lines[8].split(' ')
+            console.log(line_7)
+            //成形第二部分
 
         }
         reader.readAsText(e.target.files[0])
@@ -258,18 +284,18 @@ Template.appMenu.events({
 
 Template.appMenu.onRendered(function () {
 
-    }
-);
+}
+    );
 
 Template.appMenu.onCreated(function () {
 
-    }
-);
+}
+    );
 
 
 function getValueByName(propertyName, name) {
     var projectID = Session.get('projectID');
-    var properties = Property.find({projectID: projectID}).fetch();
+    var properties = Property.find({ projectID: projectID }).fetch();
     var property = properties.find(function (e) {
         return e.propertyName == propertyName && e.name == name
     });
@@ -277,31 +303,31 @@ function getValueByName(propertyName, name) {
         console.log(propertyName, name)
         return;
     }
-    if (property.unit == '毫米')return property.value;
-    if (property.unit == '厘米')return property.value * 10;
-    if (property.unit == '分米')return property.value * 100;
-    if (property.unit == '米')return property.value * 1000;
-    if (property.unit == '英尺')return property.value * 308.4;
-    if (property.unit == '英寸')return property.value * 25.4;
-    if (property.value == '全开口矩形槽')return 1;
-    if (property.value == '半开口矩形槽')return 2;
-    if (property.value == '半开口圆底槽')return 3;
-    if (property.value == 'A型槽')return 1;
-    if (property.value == 'B型槽')return 2;
-    if (property.value == 'C型槽')return 3;
-    if (property.value == 'D型槽')return 4;
-    if (property.value == 'E型槽')return 5;
-    if (property.value == 'F型槽')return 6;
-    if (property.value == 'G型槽')return 7;
-    if (property.value == 'H型槽')return 8;
-    if (property.value == '星型')return 0;
-    if (property.value == '角型')return 1;
-    if (property.value == '单层')return 1;
-    if (property.value == '双层')return 2;
-    if (property.value == '扁线')return 1;
-    if (property.value == '圆线')return 2;
-    if (property.value == '模态频率')return 0;
-    if (property.value == '电磁振动')return 1;
-    if (property.value == '电磁噪声')return 2;
+    if (property.unit == '毫米') return property.value;
+    if (property.unit == '厘米') return property.value * 10;
+    if (property.unit == '分米') return property.value * 100;
+    if (property.unit == '米') return property.value * 1000;
+    if (property.unit == '英尺') return property.value * 308.4;
+    if (property.unit == '英寸') return property.value * 25.4;
+    if (property.value == '全开口矩形槽') return 1;
+    if (property.value == '半开口矩形槽') return 2;
+    if (property.value == '半开口圆底槽') return 3;
+    if (property.value == 'A型槽') return 1;
+    if (property.value == 'B型槽') return 2;
+    if (property.value == 'C型槽') return 3;
+    if (property.value == 'D型槽') return 4;
+    if (property.value == 'E型槽') return 5;
+    if (property.value == 'F型槽') return 6;
+    if (property.value == 'G型槽') return 7;
+    if (property.value == 'H型槽') return 8;
+    if (property.value == '星型') return 0;
+    if (property.value == '角型') return 1;
+    if (property.value == '单层') return 1;
+    if (property.value == '双层') return 2;
+    if (property.value == '扁线') return 1;
+    if (property.value == '圆线') return 2;
+    if (property.value == '模态频率') return 0;
+    if (property.value == '电磁振动') return 1;
+    if (property.value == '电磁噪声') return 2;
     return property.value;
 }
