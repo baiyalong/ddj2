@@ -38,12 +38,14 @@ Template.appTree.onRendered(function () {
                                 {text: "定子铁心"},
                                 {text: "定子绕组"},
                                 {text: "转子铁心"},
-                                {
-                                    text: (function (projectType) {
-                                        if (projectType == 'raoxian') return "转子绕组";
-                                        else if (projectType == 'shulong') return "转子鼠笼";
-                                    })(projectType)
-                                },
+                                {text: "转子绕组"},
+                                {text: "转子鼠笼"},
+                                // {
+                                //     text: (function (projectType) {
+                                //         if (projectType == 'raoxian') return "转子绕组";
+                                //         else if (projectType == 'shulong') return "转子鼠笼";
+                                //     })(projectType)
+                                // },
                             ]
                         },
                         {

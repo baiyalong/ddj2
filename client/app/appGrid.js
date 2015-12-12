@@ -18,12 +18,12 @@ Template.appGrid.helpers({
         var projectID = Session.get('projectID');
         var propertyName = Session.get('propertyName');
         if (projectID && propertyName) {
-            return Property.find({projectID: projectID, propertyName: propertyName}).map(function (e) {
+            return Property.find({ projectID: projectID, propertyName: propertyName }).map(function (e) {
                 function unitOptions(units) {
                     if (units.indexOf(e.unit) != -1) {
                         e.selectUnit = true;
                         e.options = units.map(function (u) {
-                            var res = {option: u}
+                            var res = { option: u }
                             if (u == e.unit) {
                                 res.selected = 'selected'
                             }
@@ -37,7 +37,7 @@ Template.appGrid.helpers({
                     if (values.indexOf(e.value) != -1) {
                         e.selectValue = true;
                         e.options = values.map(function (v) {
-                            var res = {option: v}
+                            var res = { option: v }
                             if (v == e.value) {
                                 res.selected = 'selected'
                             }
@@ -63,7 +63,7 @@ Template.appGrid.helpers({
                 valueOptions(['显式四阶', '半隐式']);
                 valueOptions(['方法一', '方法二']);
                 valueOptions(['定子铁心', '定子绕组', '定子基座', '定子铁心绕组', '定子整机']);
-                valueOptions(["机械力学参数", "机械模态特征", "谐波响应振动", "瞬态响应振动", "谐波电噪指数", "瞬态电噪指数", "谐波电磁噪声", "瞬态电磁噪声"]);
+                valueOptions(["机械力学参数", "机械模态特性", "谐波响应振动", "瞬态响应振动", "谐波电噪指数", "瞬态电噪指数", "谐波电磁噪声", "瞬态电磁噪声"]);
                 valueOptions(["单根单排", "单根双排", "双根单排", "双根双排", "三根三排", "四根双排", "九根三排", "其他排列"]);
                 valueOptions(["钢材", "铸铁", "铝合金", "其他材料"]);
                 valueOptions(["过盈装配", "骨架链接"]);
@@ -85,16 +85,16 @@ Template.appGrid.events({
         var type = e.target.name;
         var edit = {};
         edit[type] = change;
-        Property.update({_id: id}, {$set: edit})
+        Property.update({ _id: id }, { $set: edit })
     }
 });
 
 Template.appGrid.onRendered(function () {
 
-    }
-);
+}
+    );
 
 Template.appGrid.onCreated(function () {
 
-    }
-);
+}
+    );
