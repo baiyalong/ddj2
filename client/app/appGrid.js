@@ -72,6 +72,15 @@ Template.appGrid.helpers({
                 valueOptions(['全开口矩形槽', '半开口矩形槽', '半开口圆底槽']);
                 valueOptions(['模态频率', '电磁振动', '电磁噪声']);
 
+                function valueBtn(values) {
+                    if (values.indexOf(e.value) != -1) {
+                        e.btnValue = true;
+                    }
+                }
+                valueBtn(['输入', '读取', '读取文件'])
+
+                if (!e.selectValue && !e.btnValue) e.textValue = true;
+
                 return e;
             });
         }
@@ -86,6 +95,9 @@ Template.appGrid.events({
         var edit = {};
         edit[type] = change;
         Property.update({ _id: id }, { $set: edit })
+    },
+    'click .btn': function (e, t) {
+        console.log(this)
     }
 });
 

@@ -24,7 +24,12 @@
                             <option value="{{option}}" selected="{{selected}}">{{option}}</option>
                             {{/each}}
                         </select></td>
-                        {{else}}
+                        {{/if}}
+                        {{#if btnValue}}
+                        <td width="30%"><input type="button" class="btn btn-default btn-sm" name="value"
+                                               value="{{value}}"/></td>
+                        {{/if}}
+                        {{#if textValue}}
                         <td width="30%"><input type="text" class="form-control input-sm edit" name="value"
                                                value="{{value}}"/></td>
                         {{/if}}
