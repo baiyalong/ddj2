@@ -876,6 +876,7 @@ Template.appMenu.events({
             Meteor.call('updateProperty', projectID, name, value, unit, function (err, res) {
                 // if (err || res == 0)
                 console.log(err, res)
+                if(res==0)console.log(res,name, value, unit)
             })
         }
 
@@ -897,18 +898,52 @@ Template.appMenu.events({
             console.log(line_2)
             update('定子铁心外径', line_2[0], '厘米')
             update('定子铁心内径', line_2[1], '厘米')
+            update('定子槽数', line_2[2], null)
+            update('定子径向通风道数量', line_2[3], null)
+            update('定子径向通风道宽度', line_2[4], '厘米')
+            update('定子槽尺寸Hs0', line_2[7], '厘米')
+            update('定子槽尺寸Hs1', line_2[8], '厘米')
             //第三类：转子铁心数据	34～49 
             var line_3 = lines[4].split(' ')
             console.log(line_3)
+            update('转子铁心内径', line_3[1], '厘米')
+            update('转子槽数', line_3[4], null)
+            update('转子径向通风道数量', line_3[5], null)
+            update('转子径向通风道宽度', line_3[6], '厘米')
+            update('转子槽尺寸Br1', line_3[9], '厘米')
+            update('转子槽尺寸Br2', line_3[10], '厘米')
+            update('转子槽尺寸Br3', line_3[11], '厘米')
+            update('转子槽尺寸Br4', line_3[12], '厘米')
+            update('转子槽尺寸Hr0', line_3[13], '厘米')
+            update('转子槽尺寸Hr1', line_3[14], '厘米')
             //第四类：笼形转子数据
             var line_4 = lines[5].split(' ')
             console.log(line_4)
+            update('转子导条总长', line_4[0], '厘米')
+            update('转子端环平均直径', line_4[2], '厘米')
             //第五类：定子绕组数据	56～60
             var line_5 = lines[6].split(' ')
             console.log(line_5)
+            update('定子线圈截距', line_5[2], null)
+            update('定子每槽导体数', line_5[3], null)
+            update('定子并联支路数', line_5[4], null)
+            update('定子线规裸线窄边尺寸', line_5[5], '厘米')
+            update('定子线规裸线宽边尺寸', line_5[6], '厘米')
+            update('定子线规并绕根数', line_5[7], null)
+            update('定子绕组接法', (function () {
+                var res = line_5[11];
+                if (res == 0) return '星型'
+                if (res == 1) return '角型'
+            })(), null)
+            update('定子槽楔厚度', line_5[12], '厘米')
             //第六类：转子绕组数据
             var line_6 = lines[7].split(' ')
             console.log(line_6)
+            update('转子线归裸线窄边尺寸', line_6[0], '厘米')
+            update('转子线归裸线宽边尺寸', line_6[1], '厘米')
+            update('转子线归并绕根数', line_6[2], null)
+            update('转子并联支路数', line_6[3], null)
+            update('转子槽楔厚度', line_6[4], '厘米')
             //第七类：其它数据
             var line_7 = lines[8].split(' ')
             console.log(line_7)
