@@ -21,7 +21,7 @@ Meteor.call('config', function (err, res) {
             ws.onclose = function () {
                 console.log('ws close.')
                 Session.set('appPrint', 'ws close.')
-                wsInit()
+                //wsInit()
             };
             ws.onerror = function () {
                 console.log('ws error.')
